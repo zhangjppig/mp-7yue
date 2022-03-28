@@ -15,9 +15,9 @@
 </view>
 <view class="post-container">
     <!-- 最大的容器 -->
-    <view class="post-autor-data">
-        <image class="post-autor" src="/images/1.png"></image>
-        <text class="post-data">Nov ０ 2020</text>
+    <view class="post-author-data">
+        <image class="post-author" src="/images/1.png"></image>
+        <text class="post-data">Nov 12 2020</text>
     </view>
     <text class="post-title">观看指南</text>
     <image class="post-image" src="/images/1.jpg"></image>

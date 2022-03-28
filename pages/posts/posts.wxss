@@ -22,7 +22,7 @@ swiper image {
     padding-bottom: 10rpx;
 }
 
-.post-autor-data {
+.post-author-data {
     /* margin-top: 10rpx;
     margin-bottom: 20rpx;
     margin-left: 10rpx;*/
@@ -33,7 +33,7 @@ swiper image {
     align-items: center;
 }
 
-.post-autor {
+.post-author {
     width: 60rpx;
     height: 60rpx;
     /* vertical-align: middle; 居中用一般flex */

@@ -1,0 +1,30 @@
+/* pages/index1/index1.wxss */
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    background-color:#b3d4db;
+}
+
+.avatar{
+    width: 200rpx;
+    height: 200rpx;
+    margin-top: 160rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.motto{
+    margin-top: 100rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: darkslategrey;
+}
+
+/* 小边框,button */
+.journey-container{
+    margin-top: 200rpx;
+}
+page{
+    background-color: #b3d4db;
+}

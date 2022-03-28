@@ -1,0 +1,10 @@
+{
+    "pages": [
+        "pages/index1/index1",
+        "pages/posts/posts"
+    ],
+    "window": {
+        "navigationBarBackgroundColor":  "#C22A1E"
+    },
+    "sitemapLocation": "sitemap.json"
+}

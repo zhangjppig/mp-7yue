@@ -1,21 +1,21 @@
+// 导入
+// let postData = require("../../data/data.js")
+// console.log( postData )
+
+import {postList} from '../../data/data.js'
+console.log(postList)
+
+
 
 Page({
-    onLoad: function (option) {
-        console.log(option.query)
-        const eventChannel = this.getOpenerEventChannel()
-        eventChannel.emit('acceptDataFromOpenedPage', { data: 'test' });
-        eventChannel.emit('someEvent', { data: 'test' });
-        // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
-        eventChannel.on('acceptDataFromOpenerPage', function (data) {
-            console.log(data)
-        })
-    },
+   
 
-
+// 跳转页面
     toPostPage() {
         wx.navigateTo({
             url: '/pages/posts/posts',
         })
-    }
-
+    },
+// wx.redirectTo会卸载当前页面，然后跳转页面
+//  wx.navigateTo会保留当前页面，然后跳转页面
 })

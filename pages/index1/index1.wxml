@@ -7,7 +7,8 @@
         hello,
         <open-data type="userNickName"></open-data>
     </view>
-    <view class="journey-container">
+    <!-- bind：捕捉事件执行的回调函数 -->
+    <view bind:tap="toPostPage" class="journey-container">
         <l-button disabled="{{false}}" bindtap="toPostPage" size="large">开启小程序之旅</l-button>
     </view>
 </view>

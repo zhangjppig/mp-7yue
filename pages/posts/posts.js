@@ -31,8 +31,9 @@ Page({
             headImgsrc:"/images/1.png",
             imgSrc:"/images/1.jpg",
 
-    // 从服务器获取的资料
-        },  {
+    
+        },
+        {
             date:"Sep 18 2020",
             title:"大好河山",
             imgSrc:"/images/2.jpg",
@@ -44,7 +45,7 @@ Page({
             author:"黑衣人",
             dateTime:"24小时前",
         }]
-
+// this.setData 只有在page页面的js才能调用，其他js页面不行
         this.setData({
             posts:content
         })

@@ -12,28 +12,36 @@
             <image src="/images/5.jpg"></image>
         </swiper-item>
     </swiper>
-</view>
-<view class="post-container">
-    <!-- 最大的容器 -->
-    <view class="post-author-data">
-        <image class="post-author" src="/images/1.png"></image>
-        <text  class="post-data">{{date}}</text>
-    </view>
 
-    <text class="post-title">{{a}}</text>
 
-    <image class="post-image" src="/images/1.jpg"></image>
-
-    <text class="post-context">
-        这里有一大段文字,小程序提供了一个简单、高效的应用开发框架和丰富的组件及API，帮助开发者在微信中开发具有原生 APP 体验的服务。本章分主题的介绍了小程序的开发语言、框架、能力、调试等内容，帮助开发者快速全面的了解小程序开发的方方面面。
-    </text>
     
-    <view class="post-like">
-        <l-icon size="28" color="#666" name="like" />
-        <image class="post-like-image" src="/images/xx.jpg"></image>
-        <text class="post-like-font">22</text>
-        <l-icon size="32" color="#666" name="eye" />
-        <image class="post-like-image" src="/images/like.jpg"></image>
-        <text class="post-like-font">{{ dataNum.reading }}</text>
+
+<block wx:for="{{ posts }}"> 
+<!-- item. 相当于指代当前的循环对象 也可写成wx:for-item="item" -->
+<!-- index 当前序号  wx:for-index="idx"-->
+{{ index }}
+    <view class="post-container">
+    <!-- 最大的容器 -->
+        <view class="post-author-data">
+            <image class="post-author" src="{{item.avatar}}"></image>
+            <text class="post-data">{{item.date}}</text>
+        </view>
+
+        <text class="post-title">{{item.title}}</text>
+
+        <image class="post-image" src="{{item.imgSrc}}"></image>
+
+        <text class="post-content">{{item.content}} </text>
+
+        <view class="post-like">
+            <l-icon size="28" color="#666" name="like" />
+            <image class="post-like-image" src="/images/xx.jpg"></image>
+            <text class="post-like-font">{{ item.collection}}</text>
+            <l-icon size="32" color="#666" name="eye" />
+            <image class="post-like-image" src="/images/like.jpg"></image>
+            <text class="post-like-font">{{ item.reading }}</text>
+        </view>
     </view>
+</block>
 </view>
+

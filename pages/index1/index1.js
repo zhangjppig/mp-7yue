@@ -1,9 +1,3 @@
-// 导入
-// let postData = require("../../data/data.js")
-// console.log( postData )
-
-import {postList} from '../../data/data.js'
-console.log(postList)
 
 
 

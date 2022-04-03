@@ -16,11 +16,13 @@
 
     
 
-<block wx:for="{{ posts }}"> 
+<block wx:for="{{postList}}" wx:key="postId"> 
+<!-- wx:key=" " 双引号里面不用双花括号{{}}，key只能是唯一 -->
 <!-- item. 相当于指代当前的循环对象 也可写成wx:for-item="item" -->
 <!-- index 当前序号  wx:for-index="idx"-->
 {{ index }}
-    <view class="post-container">
+
+    <view bind:tap="onGoToDetail" class="post-container">
     <!-- 最大的容器 -->
         <view class="post-author-data">
             <image class="post-author" src="{{item.avatar}}"></image>

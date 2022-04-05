@@ -22,7 +22,7 @@
 <!-- index 当前序号  wx:for-index="idx"-->
 {{ index }}
 
-    <view bind:tap="onGoToDetail" class="post-container">
+    <view data-id="{{item.postId}} " bind:tap="onGoToDetail" class="post-container">
     <!-- 最大的容器 -->
         <view class="post-author-data">
             <image class="post-author" src="{{item.avatar}}"></image>

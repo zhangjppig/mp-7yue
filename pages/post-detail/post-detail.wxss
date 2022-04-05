@@ -1,1 +1,84 @@
 /* pages/post-detail/post-detail.wxss */
+
+.container{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.head-image{
+  width: 100%;
+  height: 450rpx;
+}
+
+.author-date{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+}
+
+.avata{
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.author{
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  font-weight: 300;
+  color: #666;
+}
+
+.const-text{
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.date{
+  margin-left: 30rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.title{
+ margin-left: 40rpx;
+ font-size: 36rpx;
+ font-weight: 700;
+ margin-top: 30rpx;
+ letter-spacing: 6rpx;
+ color: #4b556c;
+
+}
+
+/* flex的高级应用 */
+.tool{
+  display: flex;
+  flex-direction: column;
+  /* flex-direction设置的方向为主轴*/
+  align-items: center;
+  /* align-items是设置flex布局的子元素在交叉轴上面的排布方式 */
+  justify-content: center;
+  /* justify-content设置的是flex布局的子元素在主轴上面的排布位置 */
+}
+
+.circle{
+  display: flex;
+  flex-direction: row;
+  width: 660rpx;
+  justify-content: flex-end;
+}
+.circle-img{
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.horizon{
+  width:600rpx;
+  height:1px;
+  background-color: #e5e5e5;
+  position: absolute;
+  z-index: -99;
+}

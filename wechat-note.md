@@ -299,3 +299,23 @@ Page({
 先静后动，先架构再细节
 xwml
 
+
+flex的高级应用
+wxml
+```js
+/* flex-direction设置的方向为主轴
+ * align-items是设置flex布局的子元素在交叉轴上面的排布方式 
+ * justify-content设置的是flex布局的子元素在主轴上面的排布位置 */
+.tool{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+```
+组件的自定义属性data
+
+使用data-id="{{item.postId}}"绑定数据（文章的ID）
+
+data-自定义：可以自定义属性 “data-”是固定的写法。
+将ID号绑定在每个容器上：在标签中加入data-id=“{{item.postid}}"

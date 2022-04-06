@@ -47,7 +47,7 @@
     "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.23.2",
+  "libVersion": "2.23.3",
   "appid": "wxcb82b0de5a04152e",
   "projectname": "mp-7yue",
   "debugOptions": {

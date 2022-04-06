@@ -313,9 +313,40 @@ wxml
   justify-content: center;
 }
 ```
-组件的自定义属性data
+* 组件的自定义属性data
 
-使用data-id="{{item.postId}}"绑定数据（文章的ID）
+使用data-post-id="{{item.postId}}"绑定数据（文章的ID）
 
 data-自定义：可以自定义属性 “data-”是固定的写法。
-将ID号绑定在每个容器上：在标签中加入data-id=“{{item.postid}}"
+将ID号绑定在每个容器上：在标签中加入data-post-id=“{{item.postId}}"
+
+* 在页面的onLoad函数中获取查询参数
+ 页面之间参数传递通常使用URL方式,方法如下：
+1、在wxml页面标签中 标记：
+
+    data-post-id={{item.postId}}
+
+2、在页面js文件中获取Id:
+
+   const pid = event.currentTarget.dataset.postId;  // es6的语法const定义变量
+   xv.navigateTo({
+       url:'/pages/post-detail/post-detail?pid='+ pid  // 用问号“?”充当查询参数  "?"前面的是url的路径，“?”后面的是传递的查询参数，能传递多个参数
+   })
+
+  3、在另外页面接受参数ID。另外页面传给当前页面的查询参数，可以用onLoad函数。
+
+    基于查询pid
+
+    onLoad:function(options){    
+          const pid = options.id;
+    }
+
+7-10 加载详情页数据并填充页面
+详情页的数据从data.js文件用import{}通过id号导入
+  detail.js里面导入数据：import {postList} from '../../data/data.js'
+
+  page（{
+    onLoad: function (options) {
+    const postData = postList[options.pid]
+  },
+  }）

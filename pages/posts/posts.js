@@ -33,9 +33,11 @@ Page({
     },
 
     onGoToDetail(event){
-        // console.log(event)
+        console.log(event)
+        const pid = event.currentTarget.dataset.postId  // es6的语法const定义变量
+       
         wx.navigateTo({
-            url:'/pages/post-detail/post-detail'
+            url:'/pages/post-detail/post-detail?pid='+ pid
         })
     },
       

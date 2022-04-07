@@ -1,8 +1,8 @@
 <view class="container">
-  <image class="head-image" src="/images/bestplayers.png"></image>
+  <image class="head-image" src="{{postData.headImgSrc}}"></image>
 
   <view class="author-date">
-  <image class="avata" src="/images/avata/3.png"></image>
+  <image class="avata" src="/images/avatar/3.png"></image>
   <text class="author">我是小小小肥猪</text>
   <text class="const-text">发表于</text>
   <text class="date">28小时之前</text>
@@ -13,8 +13,9 @@
 
 <view class="tool">
   <view class="circle">
-  <image class="circle-img" src="/images/icon/share.png"></image>
-  <image class="circle-img" src="/images/icon/collection.png"></image>
+    <image class="circle-img" src="/images/icon/collection.png"></image>
+    <image class="circle-img" src="/images/icon/share.png"></image>
+  
   </view>
   <view class="horizon"></view>   
   <!--水平线 -->

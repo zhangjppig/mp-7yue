@@ -62,6 +62,7 @@
   /* align-items是设置flex布局的子元素在交叉轴上面的排布方式 */
   justify-content: center;
   /* justify-content设置的是flex布局的子元素在主轴上面的排布位置 */
+  margin-top: 20rpx;
 }
 
 .circle{

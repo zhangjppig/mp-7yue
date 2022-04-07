@@ -25,6 +25,10 @@ Page({
         // 条件渲染，用wx:if=" "。
         // 列表渲染，用wx:for。用<block> </block>包裹起来要渲染的。注意item.
 
+    wx.setStorageSync('flag', true)
+    
+
+
       
 // this.setData 只有在page页面的js才能调用，其他js页面不行
         this.setData({
@@ -33,9 +37,8 @@ Page({
     },
 
     onGoToDetail(event){
-        console.log(event)
+        // console.log(event)
         const pid = event.currentTarget.dataset.postId  // es6的语法const定义变量
-       
         wx.navigateTo({
             url:'/pages/post-detail/post-detail?pid='+ pid
         })

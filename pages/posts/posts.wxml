@@ -3,26 +3,26 @@
     <!-- swiper 轮播,滑动 -->
     <swiper circular="trues" indicator-dots="{{true}}" autoplay="{{true}}">
         <swiper-item>
-            <image src="/images/1.jpg"></image>
+            <image data-post-id="3" bind:tap="onGoToDetail" src="/images/bestplayers.png"></image>
         </swiper-item>
         <swiper-item>
-            <image src="/images/3.jpg"></image>
+            <image data-post-id="0" bind:tap="onGoToDetail" src="/images/lpl.png"></image>
         </swiper-item>
         <swiper-item>
-            <image src="/images/5.jpg"></image>
+            <image data-post-id="4" bind:tap="onGoToDetail"src="/images/jumpfly.png"></image>
         </swiper-item>
     </swiper>
 
 
     
 
-<block wx:for="{{postList}}" wx:key="postId" wx:for-item="item"> 
+<block wx:for="{{postList}}" wx:key="index" wx:for-item="item"> 
 <!-- wx:key=" " 双引号里面不用双花括号{{}}，key只能是唯一 -->
 <!-- item. 相当于指代当前的循环对象 也可写成wx:for-item="item" -->
 <!-- index 当前序号  wx:for-index="idx"-->
-{{ index }}
+{{index}}
 
-    <view data-post-id="{{item.postId}} " bind:tap="onGoToDetail" class="post-container">
+    <view data-post-id="{{item.postId}}" bind:tap="onGoToDetail" class="post-container">
     <!-- 最大的容器 -->
         <view class="post-author-data">
             <image class="post-author" src="{{item.avatar}}"></image>
@@ -37,11 +37,11 @@
 
         <view class="post-like">
             <l-icon size="28" color="#666" name="like" />
-            <image class="post-like-image" src="/images/xx.jpg"></image>
-            <text class="post-like-font">{{ item.collection}}</text>
+            <image class="post-like-image" src=""></image>
+            <text class="post-like-font">{{item.collection}}</text>
             <l-icon size="32" color="#666" name="eye" />
-            <image class="post-like-image" src="/images/like.jpg"></image>
-            <text class="post-like-font">{{ item.reading }}</text>
+            <image class="post-like-image" src=""></image>
+            <text class="post-like-font">{{item.reading}}</text>
         </view>
     </view>
 </block>

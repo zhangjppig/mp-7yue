@@ -320,7 +320,7 @@ wxml
 data-自定义：可以自定义属性 “data-”是固定的写法。
 将ID号绑定在每个容器上：在标签中加入data-post-id=“{{item.postId}}"
 
-* 在页面的onLoad函数中获取查询参数
+7-9 在页面的onLoad函数中获取查询参数
  页面之间参数传递通常使用URL方式,方法如下：
 1、在wxml页面标签中 标记：
 
@@ -341,12 +341,41 @@ data-自定义：可以自定义属性 “data-”是固定的写法。
           const pid = options.id;
     }
 
-7-10 加载详情页数据并填充页面
-详情页的数据从data.js文件用import{}通过id号导入
-  detail.js里面导入数据：import {postList} from '../../data/data.js'
+### 7-10 加载详情页数据并填充页面
+详情页的数据从data.js文件用import{}导入
+```js
+  // detail.js里面导入数据：
+  import {postList} from '../../data/data.js'
 
   page（{
     onLoad: function (options) {
     const postData = postList[options.pid]
-  },
-  }）
+     this.setData({postData})
+    }
+  })
+```
+
+### 8-1 app.js的意义和作用
+
+点击收藏，取消收藏状态。可考虑保存在小程序的全局变量，在app.js里面。每个页面可以通过getApp()来获取这个变量。
+
+app.js
+```js
+App({
+  onLaunch(){
+    console.log("小程序启动")
+  }
+})
+```
+
+async和await
+
+### 8-5小程序缓存的增删改查与清除
+* 同步操作缓存的方法 'key'变量名。data值
+    * 新增 wx.setStorageSync('key',data)
+    * 重置即为修改 wx.setStorageSync('key',data)
+    * 删除 wx.removeStorageSync('key')
+    * 清空全部 wx.clearStorageSync()
+    * 读取缓存 wx.getStorageSync('key')
+  
+* 异步操作 wx.setStorage('key',data)

@@ -5,7 +5,7 @@
 // let postData = require("../../data/data.js")
 // console.log( postData )
 
-import {postList} from '../../data/data.js'
+import { postList } from '../../data/data.js'
 console.log(postList)
 
 Page({
@@ -14,36 +14,50 @@ Page({
      * 页面的初始数据
      */
     data: {
-        
+
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad (options) {
+    async onLoad(options) {
         // setData,更新、创建+更新
         // 条件渲染，用wx:if=" "。
         // 列表渲染，用wx:for。用<block> </block>包裹起来要渲染的。注意item.
 
-    wx.setStorageSync('flag', true)
-    
+        wx.setStorageSync('flag', 2)
+
+        const flag =await wx.setStorage({
+            key: 'flag',
+            // success(value){
+            //   console.log(value.data)
+            // }
+        })
+          
+            //   flag.then((value)=>{
+            //     console.log(value)
+            //   })
+          
+
+        console.log(flag);
 
 
-      
-// this.setData 只有在page页面的js才能调用，其他js页面不行
+
+
+        // this.setData 只有在page页面的js才能调用，其他js页面不行
         this.setData({
             postList // postList:postList(ES6语法)
-        })   
+        })
     },
 
-    onGoToDetail(event){
+    onGoToDetail(event) {
         // console.log(event)
         const pid = event.currentTarget.dataset.postId  // es6的语法const定义变量
         wx.navigateTo({
-            url:'/pages/post-detail/post-detail?pid='+ pid
+            url: '/pages/post-detail/post-detail?pid=' + pid
         })
     },
-      
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成

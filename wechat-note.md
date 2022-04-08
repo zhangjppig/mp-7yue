@@ -300,7 +300,7 @@ Page({
 xwml
 
 
-flex的高级应用
+* flex的高级应用
 wxml
 ```js
 /* flex-direction设置的方向为主轴
@@ -378,4 +378,38 @@ async和await
     * 清空全部 wx.clearStorageSync()
     * 读取缓存 wx.getStorageSync('key')
   
-* 异步操作 wx.setStorage('key',data)
+* 异步操作 wx.setStorage('key',data) 
+异步函数的几个方案：回调函数、promise、await
+1、异步获取本地缓存
+
+    const flag = wx.getStorage({
+      key: 'key',
+      success(value){
+        console.log(value.data);
+      }
+    })
+如果在异步方法里增加了success，则不会再会返回值，只会通过success的value传递返回值
+
+
+2、使用then
+
+   flag.then((value) => {
+      console.log(value.data);
+    })
+
+3.ES7中await，async
+
+在方法体中出现await，则在方法体前要增加async
+
+要让await，async生效，要在项目设置中勾选增强编译
+
+
+
+4、await和async的坑
+
+这个是错误的：async onLoad: function (options) {
+
+正确写法：async onLoad(options) {
+或者
+onLoad: async function (options) {
+

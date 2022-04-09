@@ -22,7 +22,7 @@
         {
           "name": "pages/post-detail/post-detail",
           "pathName": "pages/post-detail/post-detail",
-          "query": "",
+          "query": "pid=0",
           "scene": null,
           "launchMode": "default"
         }

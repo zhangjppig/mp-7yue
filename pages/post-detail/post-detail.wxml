@@ -2,18 +2,18 @@
   <image class="head-image" src="{{postData.headImgSrc}}"></image>
 
   <view class="author-date">
-  <image class="avata" src="/images/avatar/3.png"></image>
-  <text class="author">我是小小小肥猪</text>
+  <image class="avata" src="{{postData.avatar}}"></image>
+  <text class="author">{{postData.author}}</text>
   <text class="const-text">发表于</text>
-  <text class="date">28小时之前</text>
+  <text class="date">{{postData.dateTime}}</text>
   </view>
 
-  <text class="title">lpl夏季最强</text>
+  <text class="title">{{postData.title}}</text>
 
 
 <view class="tool">
   <view class="circle">
-    <image class="circle-img" src="/images/icon/collection.png"></image>
+    <image bind:tap="onCollect"  class="circle-img" src="/images/icon/collection-anti.png"></image>
     <image class="circle-img" src="/images/icon/share.png"></image>
   
   </view>
@@ -21,6 +21,6 @@
   <!--水平线 -->
   </view>
 
-  <text>写的一段东西</text>
+  <text>{{postData.detail}}</text>
 
 </view>

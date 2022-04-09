@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-   postData:{}
+   postData:{},
+   _pid:null,
   },
 
   /**
@@ -18,11 +19,20 @@ Page({
     
     const postData = postList[options.pid]
     console.log(postData)
+    this.data._pid = options.pid
     this.setData({
       postData:postData
     })
   },
   
+  onCollect(){
+    // 假设未收藏->收藏
+    // 哪篇被收藏
+    // 数据结构，多篇文章是否被收藏
+    wx.StorageSync('posts_collected',{
+     pid:true  //获取pid在上面，利用data中转
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

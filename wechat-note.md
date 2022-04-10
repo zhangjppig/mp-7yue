@@ -403,8 +403,6 @@ async和await
 
 要让await，async生效，要在项目设置中勾选增强编译
 
-
-
 4、await和async的坑
 
 这个是错误的：async onLoad: function (options) {
@@ -413,3 +411,51 @@ async和await
 或者
 onLoad: async function (options) {
 
+
+
+* 8-8文章收藏分析思路：假设未收藏->收藏；哪篇被收藏；数据结构，多篇文章是否被收藏
+```js
+Page({
+  data: {
+   _pid:null,
+  },
+
+  onLoad: function (options) {
+    const postData = postList[options.pid]
+   
+    this.data._pid = options.pid
+    this.setData({
+      postData:postData
+    })
+  },
+
+  onCollect(){
+    const postsCollected = {}
+    postsCollected[this.data._pid] = true  //js的动态访问属性
+    wx.setStorageSync('posts_collected',postsCollected)
+  }
+```
+
+* 8-9未收藏-->收藏的切换：
+    * 条件渲染，wx:if
+```js
+    <image wx:if="{{!collected}}" bind:tap="onCollect"  class="circle-img" src="/images/icon/collection-anti.png"></image>
+    <image wx:else bind:tap="onCollect"  class="circle-img" src="/images/icon/collection.png"></image>
+```
+
+```js
+Page({
+  data: {
+   collected:false,
+  },
+
+  onLoad:onCollect(){
+    this.setData({
+      collected:true
+    })
+    wx.setStorageSync('posts_collected',postsCollected)
+  },
+```
+
+
+* 8-10初始化收藏状态

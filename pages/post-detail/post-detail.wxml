@@ -13,7 +13,7 @@
 
 <view class="tool">
   <view class="circle">
-    <image bind:tap="onCollect"  class="circle-img" src="/images/icon/collection-anti.png"></image>
+    <image bind:tap="onCollect" class="circle-img" src="/images/icon/collection-anti.png"></image>
     <image class="circle-img" src="/images/icon/share.png"></image>
   
   </view>
@@ -21,6 +21,6 @@
   <!--水平线 -->
   </view>
 
-  <text>{{postData.detail}}</text>
+  <text class="detail">{{postData.detail}}</text>
 
 </view>

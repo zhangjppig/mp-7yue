@@ -9,6 +9,7 @@ Page({
    */
   data: {
    postData:{},
+   collected:false,
    _pid:null,
   },
 
@@ -18,20 +19,29 @@ Page({
   onLoad: function (options) {
     
     const postData = postList[options.pid]
-    console.log(postData)
     this.data._pid = options.pid
+    const postsCollected = wx.getStorageSync('posts_collected')
+    const collected =postsCollected[this.data._pid]
+    
     this.setData({
-      postData:postData
+      postData,
+      collected
     })
   },
   
   onCollect(){
+    // 文章收藏分析思路：
     // 假设未收藏->收藏
     // 哪篇被收藏
     // 数据结构，多篇文章是否被收藏
-    wx.StorageSync('posts_collected',{
-     pid:true  //获取pid在上面，利用data中转
+    const postsCollected = {}
+    postsCollected[this.data._pid] = true  //js的动态访问属性
+    // this.data.collected=true
+
+    this.setData({
+      collected:true
     })
+    wx.setStorageSync('posts_collected',postsCollected)
   },
 
   /**

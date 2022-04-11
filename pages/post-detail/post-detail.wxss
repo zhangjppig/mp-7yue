@@ -74,6 +74,7 @@
 .circle-img{
   width: 90rpx;
   height: 90rpx;
+  margin-left: 30rpx;
 }
 
 .horizon{
@@ -86,4 +87,5 @@
 
 .detail {
   padding: 10rpx 25rpx;
+  letter-spacing: 2rpx;
 }

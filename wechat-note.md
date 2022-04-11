@@ -439,8 +439,8 @@ Page({
 * 8-9未收藏-->收藏的切换：
     * 条件渲染，wx:if
 ```js
-    <image wx:if="{{!collected}}" bind:tap="onCollect"  class="circle-img" src="/images/icon/collection-anti.png"></image>
-    <image wx:else bind:tap="onCollect"  class="circle-img" src="/images/icon/collection.png"></image>
+    <image wx:if="{{collected}}" bind:tap="onCollect"  class="circle-img" src="/images/icon/collection.png"></image>
+    <image wx:else bind:tap="onCollect"  class="circle-img" src="/images/icon/collection-anti.png"></image>
 ```
 
 ```js
@@ -459,3 +459,82 @@ Page({
 
 
 * 8-10初始化收藏状态
+
+初始化页面的时候从缓存里读取一下当前的文章是否被收藏。
+```js
+page({
+ data: {
+   postData:{},
+   collected:false,
+   _pid:null,
+  },
+
+onLoad: function (options) {
+    
+    const postData = postList[options.pid]
+    this.data._pid = options.pid
+    const postsCollected = wx.getStorageSync('posts_collected')
+    let collected =postsCollected[this.data._pid]
+    this.setData({
+      postData,
+      collected
+    })
+  },
+```
+
+* 8-12同步文章缓存状态
+```js
+data:{
+_postsCollected:{},} //编程习惯：不用做数据绑定的加上下划线_，做数据绑定的正常驼峰写法。
+
+点击取消收藏，则postsCollected[this.data._pid]= ! this.data.collected
+this.setData({
+collected:! this.data.collected})
+```
+
+* 8-13showToast接口的应用
+    * 点击/取消收藏后，弹出提示消息
+```js
+在js里的点击里，调用 
+wx.showToast({
+    title:this.data.collected?'取消收藏':'收藏成功', // setData做数据绑定的，还会对data下面的同名属性进行赋值。所有数据绑定的值都在data里面，执行setData之后，data中数据绑定的值就会被覆盖掉。上面的this.setData({collected:!this.data.collected})已经取反，并赋值给了data下的同名属性collected。
+    duration:3000  // '收藏成功'的停留时间。3000毫秒
+})
+```
+* 8-14showToast更换成showModal
+API
+```js
+wx.showModal({
+    title: '是否收藏此文章',
+    success(res){
+      console.log(res)
+    }
+  }) 
+```
+* 8-15showModal的回调函数success 与promise
+```js
+async onCollect(){
+const result =await wx.showModal({
+    title: '是否收藏此文章',
+  }) 
+  if(result.confirm){
+    const postsCollected = this.data._postsCollected
+    wx.getStorageSync('key')
+    postsCollected[this.data._pid] = !this.data.collected
+    this.setData({
+      collected:!this.data.collected 
+    })
+    wx.setStorageSync('posts_collected',postsCollected)
+  }
+  },
+```
+
+* 8-17showActionSheet
+```js
+async onShare(){
+    const result1 =await wx.showActionSheet({
+      itemList:['分享到QQ','分享给微信好友','弹出菜单'],
+    })
+    console.log(result1)
+  },
+```

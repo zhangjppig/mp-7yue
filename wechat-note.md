@@ -32,6 +32,7 @@ Page({
 //  wx.navigateTo会保留当前页面，然后跳转页面
 })
 
+// 安装完组件后，要在工具栏里构建npm,构建完成后，会在小程序的目录出现miniprogram_npm.
 // <l-button> </l-button> 自定义的组件，要在.json文件里引用
 ```
 wxss里面添加细节，排版
@@ -538,3 +539,16 @@ async onShare(){
     console.log(result1)
   },
 ```
+
+* 9-1浮动居中方案-通过left和top定位音乐图标
+wxml
+```js
+position:absolute;  图片脱离文档流
+  left:50%;
+ margin-left:-51rpx;
+ top:180rp;
+ opacity:0.7 ;  透明度
+ ``` 
+ 
+
+

@@ -10,6 +10,7 @@ Page({
   data: {
    postData:{},
    collected:false,
+   isPlaying:false,
    _pid:null,
    _postsCollected:{}, // 编程习惯：不用做数据绑定的加上下划线_，做数据绑定的正常驼峰写法。
   },
@@ -30,10 +31,17 @@ Page({
     console.log(collected)
     this.setData({
       postData,
-      collected
+      collected,
+      isPlaying:this.currentMusicIsPlaying()
     })
   },
-  
+
+  onMusic(){
+    const mgr = wx.getBackgroundAudioManager()
+    mgr.src= postList[this.data._pid].music.url
+    mgr.title = postList[this.data._pid].music.title
+  },
+   
   async onShare(){
     const result1 =await wx.showActionSheet({
       itemList:['分享到QQ','分享给微信好友','弹出菜单'],

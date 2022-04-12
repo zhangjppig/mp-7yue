@@ -4,8 +4,9 @@
     "pages/posts/posts",
     "pages/post-detail/post-detail"
   ],
-  "window": {
+  "window": {  
     "navigationBarBackgroundColor": "#C22A1E"
   },
+  " requiredBackgroundModes":["audio","location"],
   "sitemapLocation": "sitemap.json"
-}
+} 

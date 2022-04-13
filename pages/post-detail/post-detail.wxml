@@ -1,30 +1,24 @@
 <view class="container">
   <image class="head-image" src="{{postData.headImgSrc}}"></image>
-  <image wx:if="{{!isPlaying}}" bind:tap="onMusic" class="audio" src= "/images/music/music-stop.png"></image>
-  <image wx:else bind:tap="onMusic" class="audio" src= "/images/music/music-start.png"></image>
-  <!-- <image bind:tap="onMusic" class="audio" src= "{{isPlaying?/'images/music/music-stop.png':'images/music/music-start.png'}}"></image> -->
-
+  <image wx:if="{{!isPlaying}}" bind:tap="onMusicStart" class="audio" src="/images/music/music-stop.png"></image>
+  <image wx:else bind:tap="onMusicStop" class="audio" src="/images/music/music-start.png"></image>
+  <!-- <image bind:tap="onMusic" class="audio" src="{{isPlaying ? musicStopUrl : musicStartUrl}}"></image>
+  双花括号里面写简单的js语法 -->
   <view class="author-date">
-  <image class="avata" src="{{postData.avatar}}"></image>
-  <text class="author">{{postData.author}}</text>
-  <text class="const-text">发表于</text>
-  <text class="date">{{postData.dateTime}}</text>
+    <image class="avatar" src="{{postData.avatar}}"></image>
+    <text class="author">{{postData.author}}</text>
+    <text class="const-text">发表于</text>
+    <text class="date">{{postData.dateTime}}</text>
   </view>
-
   <text class="title">{{postData.title}}</text>
-
-
-<view class="tool">
-  <view class="circle">
-    <image wx:if="{{collected}}" bind:tap="onCollect" class="circle-img" src="/images/icon/collection.png"></image>
-    <image wx:else bind:tap="onCollect" class="circle-img" src="/images/icon/collection-anti.png"></image>
-    <image bind:tap="onShare" class="circle-img" src="/images/icon/share.png"></image>
-  
+  <view class="tool">
+    <view class="circle">
+      <image wx:if="{{collected}}" bind:tap="onCollect" class="circle-img" src="/images/icon/collection.png"></image>
+      <image wx:else bind:tap="onCollect" class="circle-img" src="/images/icon/collection-anti.png"></image>
+      <image bind:tap="onShare" class="circle-img" src="/images/icon/share.png"></image>
+    </view>
+    <view class="horizon"></view>
+    <!-- 水平线 -->
   </view>
-  <view class="horizon"></view>   
-  <!--水平线 -->
-  </view>
-
   <text class="detail">{{postData.detail}}</text>
-
 </view>

@@ -549,6 +549,41 @@ position:absolute;  图片脱离文档流
  top:180rp;
  opacity:0.7 ;  透明度
  ``` 
+
  
+
+* 全局变量解决音乐播放状态初始化不正确的问题
+  * (1)使用全局变量，在app.js进行定义
+  在app.js里设置全局变量：
+```js
+App({
+  onLaunch() {
+
+  },
+  gIsPlayingMusic: false,
+})
+```
+
+  (2)在post-detail.js中
+  改变全局变量的方法在page上面const app = getApp()内置函数
+```js
+const app = getApp()
+page({
+onLoad:function(options){
+
+this.setData({
+  isPlaying: app.gIsPlayingMusic
+})
+}
+
+onMusicStart() {
+app.gIsPlayingMusic = true
+}
+onMusicStop() {
+ app.gIsPlayingMusic = false
+}
+
+})
+```
 
 

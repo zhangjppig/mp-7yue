@@ -1,7 +1,7 @@
 // pages/post-detail/post-detail.js
 
 import { postList } from '../../data/data.js'
-
+const app = getApp()  // 调用全局变量的
 Page({
 
   /**
@@ -31,11 +31,11 @@ Page({
     if (collected === undefined) { //如果是undefined,说明文章没有被收藏过
       collected = false
     }
-    console.log(collected)
+
     this.setData({
       postData,
       collected,
-
+      isPlaying: app.gIsPlayingMusic
     })
     const mgr = wx.getBackgroundAudioManager()
     this.data._mgr = mgr
@@ -55,13 +55,17 @@ Page({
     mgr.title = music.title
     mgr.coverImgUrl = music.coverImgUrl
 
+    app.gIsPlayingMusic = true
+
     this.setData({
       isPlaying: true
     })
   },
+
   onMusicStop() {
     const mgr = wx.getBackgroundAudioManager()
     mgr.stop()
+    app.gIsPlayingMusic = false
     this.setData({
       isPlaying: false
     })

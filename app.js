@@ -1,6 +1,6 @@
 App({
-  onLaunch(){
+  onLaunch() {
     console.log("小程序启动")
   },
-  
+  gIsPlayingMusic: false,
 })

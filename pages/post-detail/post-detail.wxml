@@ -1,7 +1,7 @@
 <view class="container">
   <image class="head-image" src="{{postData.headImgSrc}}"></image>
-  <image wx:if="{{!isPlaying}}" bind:tap="onMusicStart" class="audio" src="/images/music/music-stop.png"></image>
-  <image wx:else bind:tap="onMusicStop" class="audio" src="/images/music/music-start.png"></image>
+  <image wx:if="{{!isPlaying}}" bind:tap="onMusicStart" class="audio" src="/images/music/music-start.png"></image>
+  <image wx:else bind:tap="onMusicStop" class="audio" src="/images/music/music-stop.png"></image>
   <!-- <image bind:tap="onMusic" class="audio" src="{{isPlaying ? musicStopUrl : musicStartUrl}}"></image>
   双花括号里面写简单的js语法 -->
   <view class="author-date">

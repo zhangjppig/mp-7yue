@@ -37,11 +37,19 @@ Page({
       collected,
 
     })
+    const mgr = wx.getBackgroundAudioManager()
+    this.data._mgr = mgr
+    mgr.onPlay(this.onMusicStart)
+    // mgr.onStop(this.onMusicStop) 监听音乐停止
+    mgr.onPause(this.onMusicStop)  // 背景音乐暂停
   },
 
   onMusicStart() {
-    const mgr = wx.getBackgroundAudioManager()
+    const mgr = this.data._mgr
 
+    // mgr.onPlay(() => {
+    //   console.log(1111)
+    // })
     const music = postList[this.data._pid].music
     mgr.src = music.url
     mgr.title = music.title

@@ -618,3 +618,29 @@ currentMusicIsPlaying() {
     }
     return false
 },
+```
+
+* tabBar选项卡配置
+
+```js
+app.json里添加
+"tabBar":{  
+   "selectedColor":"#333333",  // 选中时选项卡字体的颜色
+    "color":"#999999", // 未选中时选项卡字体的颜色
+    "list":[    // {js对象写在花括号里}
+      {
+        "text": "阅读",  // 选项卡的标题
+        "pagePath": "pages/posts/posts" //选项卡的页面
+        "iconPath": "/images/tab/post.png", // 未选中时的图标
+        "selectedIconPath": "/images/tab/post@highlight.png"  // 选中这个选项，小图标会高亮
+      },
+      {
+        "text": "电影",
+        "pagePath": "pages/movies/movies", // 需新建文件夹movies，右键新建page
+        "iconPath": "/images/tab/movie.png",
+        "selectedIconPath": "/images/tab/movie@highlight.png"
+      } 
+    ]
+},
+```
+ 

@@ -11,8 +11,8 @@ Page({
     postData: {},
     collected: false,
     isPlaying: false,
-    musicStopUrl: '/images/music/music-stop.png',
-    musicStartUrl: '/images/music/music-start.png',
+    // musicStopUrl: '/images/music/music-stop.png',
+    // musicStartUrl: '/images/music/music-start.png',
     _pid: null,
     _postsCollected: {}, // 编程习惯：不用做数据绑定的加上下划线_，做数据绑定的正常驼峰写法。
     _mgr: null
@@ -35,13 +35,20 @@ Page({
     this.setData({
       postData,
       collected,
-      isPlaying: app.gIsPlayingMusic
+      isPlaying: this.currentMusicIsPlaying
     })
     const mgr = wx.getBackgroundAudioManager()
     this.data._mgr = mgr
     mgr.onPlay(this.onMusicStart)
     // mgr.onStop(this.onMusicStop) 监听音乐停止
     mgr.onPause(this.onMusicStop)  // 背景音乐暂停
+  },
+
+  currentMusicIsPlaying() {
+    if (app.gIsPlayingMusic && app.gIsPlayingPostId === this.data._pid) {
+      return true
+    }
+    return false
   },
 
   onMusicStart() {
@@ -53,9 +60,10 @@ Page({
     const music = postList[this.data._pid].music
     mgr.src = music.url
     mgr.title = music.title
-    mgr.coverImgUrl = music.coverImgUrl
+    mgr.coverImgUrl = music.coverImg
 
     app.gIsPlayingMusic = true
+    app.gIsPlayingPostId = this.data._pid
 
     this.setData({
       isPlaying: true
@@ -66,6 +74,7 @@ Page({
     const mgr = wx.getBackgroundAudioManager()
     mgr.stop()
     app.gIsPlayingMusic = false
+    app.gIsPlayingPostId = -1
     this.setData({
       isPlaying: false
     })

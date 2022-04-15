@@ -572,7 +572,7 @@ page({
 onLoad:function(options){
 
 this.setData({
-  isPlaying: app.gIsPlayingMusic
+  isPlaying: this.gIsPlayingMusic
 })
 }
 
@@ -587,3 +587,34 @@ onMusicStop() {
 ```
 
 
+* 每篇文章的音乐独立显示状态
+  * 在app.js中再次引入全局变量
+```js
+App({
+  onLaunch() {
+
+  },
+  gIsPlayingMusic: false,
+  gIsPlayingPostId: -1, // -1不存在，没有音乐在播放
+})
+
+(2)在post-detail.js中添加
+onLoad: function (options) {
+    this.setData({
+      isPlaying: app.currentMusicIsPlaying
+    })
+
+onMusicStart() {
+  app.gIsPlayingPostId = this.data._pid
+}，
+
+onMusicStop() { 
+ app.gIsPlayingPostId = -1
+}，
+
+currentMusicIsPlaying() {
+    if (app.gIsPlayingMusic && app.gIsPlayingPostId === this.data._pid) {
+      return true
+    }
+    return false
+},

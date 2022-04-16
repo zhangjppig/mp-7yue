@@ -13,7 +13,7 @@
         </swiper-item>
     </swiper>
 
-
+    <post />
     
 
 <block wx:for="{{postList}}" wx:key="index" wx:for-item="item"> 

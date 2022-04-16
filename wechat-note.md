@@ -540,6 +540,7 @@ async onShare(){
   },
 ```
 
+## 文章音乐播放
 * 9-1浮动居中方案-通过left和top定位音乐图标
 wxml
 ```js
@@ -643,4 +644,41 @@ app.json里添加
     ]
 },
 ```
- 
+
+switchTab跳转到带有选项卡tabBar的页面，redirectTo和navigateTo都不行
+```js
+toPostPage() {
+        wx.switchTab({
+            url: '/pages/posts/posts',
+        })
+    },
+```
+
+## 自定义组件
+
+1. 新建第一个自定义组件
+  * 根目录上新建文件夹components，保存自定义组件目录
+  * components下新建文件夹post，后右键新建component，一般命名index
+
+2. 创建自定义组件的属性
+  * 在对应的页面配置
+  posts.json
+```
+  {
+   "usingComponents": {
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "post": "/components/post/index"
+  },
+  }
+```
+* properties 组件的属性列表
+```
+Component({
+  properties: {
+     text:{
+      type:String,
+      value:'144'
+    }
+  }
+})
+```

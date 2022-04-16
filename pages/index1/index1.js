@@ -2,14 +2,14 @@
 
 
 Page({
-   
 
-// 跳转页面
+
+    // 跳转页面
     toPostPage() {
-        wx.navigateTo({
+        wx.switchTab({
             url: '/pages/posts/posts',
         })
     },
-// wx.redirectTo会卸载当前页面，然后跳转页面
-//  wx.navigateTo会保留当前页面，然后跳转页面
+    // wx.redirectTo会卸载当前页面，然后跳转页面
+    //  wx.navigateTo会保留当前页面，然后跳转页面
 })

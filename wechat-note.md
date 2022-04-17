@@ -695,4 +695,23 @@ Component({
   * components下新建movie文件夹，右键component。
   * 组件可以引用组件。在movie-list下的index.json引用movie组件"movie":"/components/movie/index"
   * movie-list下的index.wxml使用movie组件<movie />
- 
+
+### movie自定义组件的构建
+* 嵌套组件构建顺序：从小到大，由内而外。
+* 先构建movie组件，然后movie-list组件引用movie组件。
+```js
+// movie的index.wxml
+<view class="container">
+<image class="poster" src="/images/bestplayers.png"></image>
+<text class="title">盗梦空间</text>
+</view>
+```
+```
+/* 数字过长显示省略号(容器要限定宽度) */
+.title{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+}
+```

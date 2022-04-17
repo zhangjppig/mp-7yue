@@ -1,1 +1,4 @@
-这是一部电影
+<view class="container">
+<image class="poster" src="/images/bestplayers.png"></image>
+<text class="title">盗梦空间</text>
+</view>

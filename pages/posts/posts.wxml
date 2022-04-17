@@ -9,41 +9,13 @@
             <image data-post-id="0" bind:tap="onGoToDetail" src="/images/lpl.png"></image>
         </swiper-item>
         <swiper-item>
-            <image data-post-id="4" bind:tap="onGoToDetail"src="/images/jumpfly.png"></image>
+            <image data-post-id="4" bind:tap="onGoToDetail" src="/images/jumpfly.png"></image>
         </swiper-item>
     </swiper>
-
-    <post />
-    
-
-<block wx:for="{{postList}}" wx:key="index" wx:for-item="item"> 
-<!-- wx:key=" " 双引号里面不用双花括号{{}}，key只能是唯一 -->
-<!-- item. 相当于指代当前的循环对象 也可写成wx:for-item="item" -->
-<!-- index 当前序号  wx:for-index="idx"-->
-{{index}}
-
-    <view data-post-id="{{item.postId}}" bind:tap="onGoToDetail" class="post-container">
-    <!-- 最大的容器 -->
-        <view class="post-author-data">
-            <image class="post-author" src="{{item.avatar}}"></image>
-            <text class="post-data">{{item.date}}</text>
-        </view>
-
-        <text class="post-title">{{item.title}}</text>
-
-        <image class="post-image" src="{{item.imgSrc}}"></image>
-
-        <text class="post-content">{{item.content}} </text>
-
-        <view class="post-like">
-            <l-icon size="28" color="#666" name="like" />
-            <image class="post-like-image" src=""></image>
-            <text class="post-like-font">{{item.collection}}</text>
-            <l-icon size="32" color="#666" name="eye" />
-            <image class="post-like-image" src=""></image>
-            <text class="post-like-font">{{item.reading}}</text>
-        </view>
-    </view>
-</block>
+    <block wx:for="{{postList}}" wx:key="index" wx:for-item="item" wx:for-index="idx">
+        <!-- wx:key=" " 双引号里面不用双花括号{{}}，key只能是唯一 -->
+        <!-- item. 相当于指代当前的循环对象 也可写成wx:for-item="item" -->
+        <!-- index 当前序号  wx:for-index="idx" -->
+        <post res="{{item}}" />
+    </block>
 </view>
-

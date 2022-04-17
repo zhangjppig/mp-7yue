@@ -223,7 +223,8 @@ swiper image {
 * 条件渲染，用wx:if=" "
 * 列表渲染，用wx:for。用<block> </block>包裹起来要渲染的。注意item.
 ```js
-<block wx:for="{{postList}}" wx:key="postId"> 
+// <block wx:for="{{postList}}" wx:key="postId"> 这个写漏 wx:key="index" wx:for-item="item" wx:for-index="idx"
+<block wx:for="{{postList}}" wx:key="index"  wx:for-item="item" wx:for-index="idx">
 // wx:key=" " 双引号里面不用双花括号{{}}，key只能是唯一 
 // item. 相当于指代当前的循环对象 也可写成wx:for-item="item"
 //  index 当前序号  wx:for-index="idx"
@@ -682,3 +683,16 @@ Component({
   }
 })
 ```
+
+* 自定义属性可以接收一个object对象
+  * 把原来在posts页面的文章部分作为一个组件，wxml和wxss裁剪到组件对应下的wxml和wxss
+  * 在组件index.js中，properties: {res: Object}
+  * 主页面的posts.js中，data: {res: {text: ""}}
+  * 组件绑定数据，<post res="{{item}}"/>
+
+* 自定义组件的嵌套引用
+  * components下新建movies-list文件夹，右键component。在movies.json里引用movie-list组件,在movies.wxml里可使用<movie-list />组件
+  * components下新建movie文件夹，右键component。
+  * 组件可以引用组件。在movie-list下的index.json引用movie组件"movie":"/components/movie/index"
+  * movie-list下的index.wxml使用movie组件<movie />
+ 

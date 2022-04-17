@@ -20,21 +20,21 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-     async onLoad(options) {
+    async onLoad(options) {
         // setData,更新、创建+更新
         // 条件渲染，用wx:if=" "。
         // 列表渲染，用wx:for。用<block> </block>包裹起来要渲染的。注意item.
 
         wx.setStorageSync('flag', 2)
-        const flag =await wx.getStorage({
-            key:'flag',
+        const flag = await wx.getStorage({
+            key: 'flag',
             // success(value){
             //     console.log(value.data)
             // }
         })
-            // flag.then((value)=>{
-            //     console.log(value)
-            // })
+        // flag.then((value)=>{
+        //     console.log(value)
+        // })
 
         console.log(flag);
 

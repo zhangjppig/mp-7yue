@@ -1,2 +1,18 @@
-<!--components/post/index.wxml-->
-{{text}}
+<view data-post-id="{{res.postId}}" bind:tap="onGoToDetail" class="post-container">
+    <!-- 最大的容器 -->
+    <view class="post-author-data">
+        <image class="post-author" src="{{res.avatar}}"></image>
+        <text class="post-data">{{res.date}}</text>
+    </view>
+    <text class="post-title">{{res.title}}</text>
+    <image class="post-image" src="{{res.imgSrc}}"></image>
+    <text class="post-content">{{res.content}}</text>
+    <view class="post-like">
+        <l-icon size="28" color="#666" name="like" />
+        <image class="post-like-image" src=""></image>
+        <text class="post-like-font">{{item.collection}}</text>
+        <l-icon size="32" color="#666" name="eye" />
+        <image class="post-like-image" src=""></image>
+        <text class="post-like-font">{{item.reading}}</text>
+    </view>
+</view>

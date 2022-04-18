@@ -715,3 +715,17 @@ Component({
   word-break: break-all;
 }
 ```
+
+* 使用linUI的评分组件快速实现分数预览
+  * 引用评分组件"l-rate":"miniprogram_npm/lin-ui/rate/index"
+  * score-星级得分（可手动打分）,size-评级图标大小,count-评级上限（默认5级）,disabled-{{true}}取消手动评分,active-color--选中时颜色,inActive-color--未选中时颜色
+```js
+ <view class="container">
+  <image class="poster" src="/images/bestplayers.png"></image>
+  <text class="title">盗梦空间</text>
+  <view class="rate-container">
+    <l-rate disabled="{{true}}" score="4.3" size="22"></l-rate>
+    <text class="score">4.3</text>
+  </view>
+</view>
+```

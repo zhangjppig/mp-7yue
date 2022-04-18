@@ -729,3 +729,19 @@ Component({
   </view>
 </view>
 ```
+
+* Flex布局的space-between进行分布排列
+```
+.title-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;  两端分布
+  margin-bottom: 28rpx;
+}
+
+.movie-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+```

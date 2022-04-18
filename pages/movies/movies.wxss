@@ -1,1 +1,8 @@
-/* pages/movies/movies.wxss */
+.movie-list{
+  margin-bottom: 30rpx;
+  /* background-color: aqua !important; 提升外部样式类优先级，!important */
+}
+
+page{
+  background-color: #f2f2f2;
+}

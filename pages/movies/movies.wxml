@@ -1,1 +1,3 @@
-<movie-list />
+<movie-list my-class="movie-list"/>
+<movie-list my-class="movie-list"/>
+<movie-list my-class="movie-list"/>

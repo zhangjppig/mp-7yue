@@ -745,3 +745,13 @@ Component({
   justify-content: space-between;
 }
 ```
+
+* 外部样式类externalClasses
+  * 外部样式类用于自定义组件，由使用自定义组件的页面编写样式，只需要在组件标签上加上外部样式关键字，在css页面编写样式即可
+```js
+Component({
+  externalClasses:['my-class'],
+  properties: {
+    
+  },
+})

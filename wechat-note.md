@@ -777,7 +777,7 @@ movies.js
 Page({
  onLoad: function (options) {
     wx.request({
-      url: 'http://t.talelin.com/v2/movie/in_theaters',
+      url: 'http://t.talelin.com/v2/movie/in_theaters?start=0&count=3',  // ?后面的start=x开始数据序号&count=y获取的数量
       success(res){
         console.log(res)
     },
@@ -786,3 +786,36 @@ Page({
   },
 })
 ```
+
+* 在页面获取到的数据传到自定义组件里面，最终展示在自定义组件
+  （movies页面获取数据inTheaters，然后传到movie-list，在movie-list自定义组件的<movie />展现出来）
+  * movie-list中Component({properties: {movies:Array} }) 接收数据
+  * movies.wxml中<movie-list movies="{{inTheaters}}" /> 传输数据到movie-list。花括号里的是被绑定的变量从movies.js得到
+
+    * 在自定义组件中定义属性
+    * 要绑定的数据需要在data里面预先定义,然后this.setData调用
+    * 箭头函数解决this指代问题
+```
+movies.js中
+Page({
+data: {
+  inTheaters:[]   // 给[]数据，做数据绑定使用this.setData
+},
+  onLoad: function (options) {
+    wx.request({
+      url: 'http://t.talelin.com/v2/movie/in_theaters?start=0&count=3', 
+      success：(res)=>{
+        this.setData({
+          inTheaters:res.data.subjects
+      })
+    },
+  })    
+  },
+}
+用下面这个会报错：要用箭头函数
+      success(res){
+        this.setData({
+          inTheaters:res.data.subjects
+        })
+```
+

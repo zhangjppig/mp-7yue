@@ -755,3 +755,34 @@ Component({
     
   },
 })
+```
+### 访问服务端的数据
+* 在组件的属性中定义属性
+  * 在自定义组件的properties中定义组件的属性
+  * 在自定义组件的页面中进行属性数据绑定
+  * 在引用组件的页面中设置组件属性的值
+```
+Component({
+  properties: {title:String}
+})
+
+index.wxml里
+ <text>{{title}}</text>
+```
+
+* 使用request加载服务端数据
+  * 在项目设置中设置不校验https。
+movies.js
+```js
+Page({
+ onLoad: function (options) {
+    wx.request({
+      url: 'http://t.talelin.com/v2/movie/in_theaters',
+      success(res){
+        console.log(res)
+    },
+    // url即服务器API地址
+    })
+  },
+})
+```

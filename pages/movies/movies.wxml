@@ -1,4 +1,4 @@
 <movie-list movies="{{inTheaters}}" title="正在热映" my-class="movie-list" />
-<movie-list title="即将上映" my-class="movie-list" />
-<movie-list title="豆瓣Top250" my-class="movie-list" />
+<movie-list movies="{{comingSoon}}" title="即将上映" my-class="movie-list" />
+<movie-list movies="{{top250}}" title="豆瓣Top250" my-class="movie-list" />
 <!-- title在组件movies-list定义了属性 -->

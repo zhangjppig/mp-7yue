@@ -15,8 +15,14 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      url: app.gBaseUrl + 'in_theaters?start=0&count=3',
+      url: app.gBaseUrl + 'in_theaters',
       // url即服务器API地址
+      // method: 'GET',没写就默认了method: 'GET'
+      // 当method时是'GET'方法，data:{ start: 0,count: 3,}等同于url后面加上查询参数?start=0&count=3。
+      data: {
+        start: 0,
+        count: 3,
+      },
       success: (res) => {
         console.log(res)
         this.setData({

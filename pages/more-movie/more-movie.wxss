@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* 自适应换行 */
+    padding: 30rpx 28rpx;
+}

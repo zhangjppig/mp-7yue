@@ -4,4 +4,9 @@
     flex-wrap: wrap;
     /* 自适应换行 */
     padding: 30rpx 28rpx;
+    justify-content: space-between;
+}
+
+.movie-container{
+    margin-bottom: 30rpx;
 }

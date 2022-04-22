@@ -837,3 +837,8 @@ onGonfirm(event){
   }
 })
 ```
+
+* 搜索结果与电影数据的切换显示实现思路：
+  * success: (res) => {}调用，this.setData()获取请求的数据；
+  * 在页面通过wx:if和wx:else 条件进行控制显示内容；
+  * 通过一个Boolean searchResult 进行控制。

@@ -1,3 +1,4 @@
+<l-search-bar l-class="ex-search-bar" placeholder="输入电影名字" show-cancle="{{false}}"/>
 <movie-list data-type="in_theaters" bind:tap="onGotoMore" movies="{{inTheaters}}" title="正在热映" my-class="movie-list" />
 <movie-list data-type="coming_soon" bind:tap="onGotoMore" movies="{{comingSoon}}" title="即将上映" my-class="movie-list" />
 <movie-list data-type="top250" bind:tap="onGotoMore" movies="{{top250}}" title="豆瓣Top250" my-class="movie-list" />

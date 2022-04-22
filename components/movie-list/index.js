@@ -1,13 +1,13 @@
 // components/movies-list/index.js
 Component({
 
-  externalClasses:['my-class'],
+  externalClasses: ['my-class'],
   /**
    * 组件的属性列表
    */
   properties: {
-    title:String,
-    movies:Array
+    title: String,
+    movies: Array
   },
 
   /**

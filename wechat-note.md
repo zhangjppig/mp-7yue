@@ -819,3 +819,21 @@ data: {
         })
 ```
 
+
+使用LinUI组件快速创建搜索栏
+向服务器请求搜索数据
+获取用户输入的关键词，LinUI的bind:linconfirm点击事件来获取 bind:linconfirm="onGonfirm"
+```
+const app = getApp()
+Page({
+onGonfirm(event){
+    console.log(event)
+    wx.request({
+      url: app.gBaseUrl + 'search',
+      data:{
+        q: event.detail.value
+      }
+    })
+  }
+})
+```

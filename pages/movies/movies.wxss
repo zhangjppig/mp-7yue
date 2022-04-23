@@ -18,3 +18,9 @@ page{
   padding: 30rpx 28rpx;
   justify-content: space-between;
 }
+
+/* 修复space-between2个元素两端分布的问题 */
+.search-container::after{
+  content:'';
+  width:200rpx;
+}

@@ -10,3 +10,11 @@ page{
 .ex-search-bar{
   height: 85rpx !important;
 }
+
+.search-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 30rpx 28rpx;
+  justify-content: space-between;
+}

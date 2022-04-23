@@ -1,8 +1,12 @@
-<l-search-bar bind:linconfirm="onGonfirm" l-class="ex-search-bar" placeholder="输入电影名字" show-cancel="{{false}}" />
+<l-search-bar bind:linconfirm="onGonfirm" l-class="ex-search-bar" placeholder="输入电影名字" />
 <view wx:if="{{!searchResult}}">
     <movie-list data-type="in_theaters" bind:tap="onGotoMore" movies="{{inTheaters}}" title="正在热映" my-class="movie-list" />
     <movie-list data-type="coming_soon" bind:tap="onGotoMore" movies="{{comingSoon}}" title="即将上映" my-class="movie-list" />
     <movie-list data-type="top250" bind:tap="onGotoMore" movies="{{top250}}" title="豆瓣Top250" my-class="movie-list" />
     <!-- title在组件movies-list定义了属性 -->
 </view>
-<view wx:else>搜索结果</view>
+<view class="search-container" wx:else>
+    <block wx:for="{{searchData}}" wx:key="index">
+        <movie class="movie" movie="{{item}}"/>
+    </block>
+</view>

@@ -9,6 +9,7 @@ Page({
     comingSoon: [],
     top250: [],
     searchResult: false,
+    searchData:[]
   },
 
   /**
@@ -68,7 +69,9 @@ Page({
         q: event.detail.value
       },
       success: (res) => {
-
+        this.setData({
+          searchData:res.data.subjects
+        })
       }
     })
   },

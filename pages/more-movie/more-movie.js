@@ -6,6 +6,7 @@ Page({
    */
   data: {
     movies: [],
+    _type:""
   },
 
   /**
@@ -13,6 +14,7 @@ Page({
    */
   onLoad: function (options) {
     const type = options.type
+    this._type = type
     wx.request({
       url: app.gBaseUrl + type,
       data: {
@@ -67,7 +69,19 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    wx.request({
+      url: app.gBaseUrl + this._type,
+      data: {
+        start: 12,
+        count: 12,
+      },
+      success: (res) => {
+        console.log(res)
+        this.setData({
+          movies: this.data.movies.concat(res.data.subjects)
+        })
+      },
+    })
   },
 
   /**

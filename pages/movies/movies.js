@@ -33,8 +33,12 @@ Page({
       },
     })
     wx.request({
-      url: app.gBaseUrl + 'coming_soon?start=0&count=3',
+      url: app.gBaseUrl + 'coming_soon',
       // url即服务器API地址
+      data: {
+        start: 0,
+        count: 3,
+      },
       success: (res) => {
         console.log(res)
         this.setData({
@@ -43,8 +47,12 @@ Page({
       },
     })
     wx.request({
-      url: app.gBaseUrl + 'top250?start=0&count=3',
+      url: app.gBaseUrl + 'top250',
       // url即服务器API地址
+      data: {
+        start: 0,
+        count: 3,
+      },
       success: (res) => {
         console.log(res)
         this.setData({

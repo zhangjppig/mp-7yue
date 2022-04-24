@@ -847,4 +847,12 @@ onGonfirm(event){
   * 加载更多数据的思路
     * 服务返回数据按照分页的方式进行返回;如何知道用户滑动页面，页面上拉触底事件的处理函数onReachBottom。 
     * 在加载数据，需要重新设置data的start参数，这里有type参数需要在onLoad进行设置；下拉不应该覆盖原来数据，使用concat()进行合并，在原来的集合对象进行追加数据。
-  * 待处理问题：每次拉动更多，追加的是重复数据
+  * 待处理问题：每次拉动更多，追加的是重复数据-->待处理数据加载分页索引起始值：可以设置对应数组的长度,data的start采用数组的长度
+```
+data:{start: this.data.movies.length,count: 12},
+```
+
+* 上滑加载更多数据 onshowloding提示
+  * 添加加载提示信息
+    * 请求前wx.showNavigationBarLoading()
+    * 请求成功后wx.hideNavigationBarLoading()

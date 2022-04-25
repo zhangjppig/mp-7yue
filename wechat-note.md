@@ -856,3 +856,7 @@ data:{start: this.data.movies.length,count: 12},
   * 添加加载提示信息
     * 请求前wx.showNavigationBarLoading()
     * 请求成功后wx.hideNavigationBarLoading()
+
+* 下划刷新数据
+  * json文件中配置 "enablePullDownRefresh":true
+  * js文件使用onPullDownRefresh函数

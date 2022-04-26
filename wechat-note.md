@@ -416,6 +416,7 @@ onLoad: async function (options) {
 
 
 * 8-8文章收藏分析思路：假设未收藏->收藏；哪篇被收藏；数据结构，多篇文章是否被收藏
+> 在post-detail编译模式的“启动参数”中添加pid=0.（pid可以随意一篇文章的数）pid是进入post-detail的必须的一个参数。post页面跳转至详情页面post-detail的url:'/pages/post-detail/post-detail?pid='+ pid。
 ```js
 Page({
   data: {
@@ -860,3 +861,16 @@ data:{start: this.data.movies.length,count: 12},
 * 下划刷新数据
   * json文件中配置 "enablePullDownRefresh":true
   * js文件使用onPullDownRefresh函数
+
+
+### 获取自定义组件的detail参数
+* 在自定义组件内：bind:tap="onTap"
+```
+methods：{onTap(event){
+const pid=event.currentTarget.dataset.postId
+this.triggerEvent('posttap',{pid})  // 抛出一个自定义事件 posttap，和变量 pid 用{}将pid传输出去
+}}
+```
+bind:posttap="" //用来监听posttap事件
+
+* 使用自定义组件的页面通过detail参数获取数据。const pid = event.detail.pid  // 从自定义组件那里接收到的参数pid。

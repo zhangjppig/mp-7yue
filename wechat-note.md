@@ -874,3 +874,27 @@ this.triggerEvent('posttap',{pid})  // 抛出一个自定义事件 posttap，和
 bind:posttap="" //用来监听posttap事件
 
 * 使用自定义组件的页面通过detail参数获取数据。const pid = event.detail.pid  // 从自定义组件那里接收到的参数pid。
+
+* 同时获取自定义属性和自定义组件的detail参数
+
+  * ①由于同一个页面的组件和自定义组件都有onGoToDetail事件，并且要获取的pid是同一个，但是由于两种组件获取方法不同，所以可以用“或”来判断一下到底使用哪种方法获取
+```
+onGoToDetail(event) {
+  const pid = event.currentTarget.dataset.postId | event.detail.pid
+  wx.navigateTo({
+    url: '/pages/post-detail/post-detail?pid=' + pid
+  })
+}
+```
+
+  * ②自定义组件可以不绑定属性 data-post-id="{{res.postId}}"  ，然后const pid = event.currentTarget.dataset.postId 来获取 pid，可以直接const pid = this.properties.res.postId 来获取pid
+```
+methods: {
+  onTap(event){ 
+    const pid = this.properties.res.postId
+    this.triggerEvent("posttap",{
+      pid
+    })
+  }
+}
+```

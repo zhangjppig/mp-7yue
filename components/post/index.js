@@ -18,12 +18,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onTap(event){
-      console.log(event)
-      const pid = event.currentTarget.dataset.postId
+    onTap(event){ 
+      // const pid = event.currentTarget.dataset.postId
+      const pid = this.properties.res.postId
       this.triggerEvent("posttap",{
         pid
-      });
+      })
     }
   }
 })

@@ -50,7 +50,7 @@ Page({
     onGoToDetail(event) {
         // console.log(event)
         // const pid = event.currentTarget.dataset.postId   es6的语法const定义变量
-        const pid = event.detail.pid  // 从自定义组件那里接收到的pid。
+        const pid = event.currentTarget.dataset.postId | event.detail.pid  // event.detail.pid从自定义组件那里接收到的pid。
         wx.navigateTo({
             url: '/pages/post-detail/post-detail?pid=' + pid
         })

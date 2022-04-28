@@ -1,2 +1,30 @@
-<!--pages/movie-detail/movie-detail.wxml-->
-<text>pages/movie-detail/movie-detail.wxml</text>
+<view class="container">
+  <image class="head-img" src="{{movie.images.large}}"></image>
+  <view class="head-img-hover">
+    <text class="main-title">{{movie.title}}</text>
+    <text class="sub-title">{{movie.countries[0] + '·' + movie.year}}</text>
+    <view class="like">
+      <text class="highlight-font">{{movie.wish_count}}</text>
+      <text class="plain-font">人喜欢</text>
+      <text class="highlight-font">{{movie.comments_count}}</text>
+      <text class="plain-font">条评论</text>
+    </view>
+  </view>
+  <image bind:tap="onViewPost" class="movie-img" src="{{movie.images.large}}"></image>
+</view>
+
+
+<!-- <text>{{movie.title}}</text>
+  <view class="">
+    <l-rate>{{movie.rating}}</l-rate>
+    <text>导演 {{movie.directors.avatars}}</text>
+    <text>影人 {{movie.avatars}}</text>
+    <text>类型 {{movie.genres}}</text>
+  </view>
+  <view>
+    <text class="">剧情简介</text>
+    <text>{{movie.summary}}</text>
+  </view>
+  <text>影人</text>
+  <image src=""></image>
+</view> -->

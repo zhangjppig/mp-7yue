@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     const type = options.type
-    this._type = type
+    this.data._type = type
     wx.request({
       url: app.gBaseUrl + type,
       data: {
